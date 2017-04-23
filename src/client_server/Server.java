@@ -19,9 +19,9 @@ public class Server {
                     System.out.println("Connected");
                     String received = "";
                     while ((received = input.readLine()) != null) {
-                        System.out.println("Received: " + received);
-                        if (received.equals("hi")) {
-                            server.write(output, "hi there");
+                        System.out.println("Received connection request from " + received.substring(7, received.length()));
+                        if (received.contains("CONNECT")) {
+                            server.write(output, "hi there " + received.substring(7, received.length()));
                         }
                         if (received.equals("bye")) {
                             server.write(output, "see you");
